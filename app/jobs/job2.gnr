@@ -1,0 +1,268 @@
+<LOG_GENERATOR template_name="Sample Web Logs IETF Compliant" template_ver="1.0" template_author="CH">
+	<PARAMETER name="maxrate" value="100000" />
+	<PARAMETER name="total" value="40000" />
+	<PARAMETER name="runtime" value="0" />
+	<PARAMETER name="rfc3164" value="yes" />
+
+	<SEQUENCE name="BackgroundHits" weight="100">
+		<STEP logid="1" />
+		<STEP logid="2" />
+		<STEP logid="3" />	
+	</SEQUENCE>
+	<SEQUENCE name="BackgroundHitsRealS1" weight="30">
+		<STEP logid="1" />
+		<STEP logid="7" />
+		<STEP logid="10" />
+		<STEP logid="13" />	
+	</SEQUENCE>
+	<SEQUENCE name="BackgroundHitsRealS2" weight="30">
+		<STEP logid="1" />
+		<STEP logid="8" />
+		<STEP logid="11" />
+		<STEP logid="14" />	
+	</SEQUENCE>
+	<SEQUENCE name="BackgroundHitsRealS3" weight="30">
+		<STEP logid="1" />
+		<STEP logid="9" />
+		<STEP logid="12" />
+		<STEP logid="15" />	
+	</SEQUENCE>
+	<SEQUENCE name="RandomBrowsingS1" weight="30">
+		<STEP logid="1" />
+		<STEP logid="7"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="10"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="13"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="4"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="4"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="4"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="4"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="4"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="4"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="16"> <INHERIT value="SRCIP" /></STEP>	
+	</SEQUENCE>
+	<SEQUENCE name="RandomBrowsingS2" weight="30">
+		<STEP logid="2" />
+		<STEP logid="8"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="11"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="14"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="5"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="5"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="5"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="5"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="5"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="5"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="17"> <INHERIT value="SRCIP" /></STEP>	
+	</SEQUENCE>
+	<SEQUENCE name="RandomBrowsingS3" weight="30">
+		<STEP logid="3" />
+		<STEP logid="9"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="12"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="15"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="6"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="6"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="6"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="6"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="6"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="6"> <INHERIT value="SRCIP" /></STEP>
+		<STEP logid="18"> <INHERIT value="SRCIP" /></STEP>	
+	</SEQUENCE>
+
+
+	
+	<LOG id="1" src="192.168.140.6" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /index.htm HTTP/1.0" 200 1011</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />		
+		<FIELD name="PAGE" type="text" value="index.htm,page1.htm,page2.htm" />
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />
+	</LOG>
+	<LOG id="2" src="192.168.140.7" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /index.htm HTTP/1.0" 200 1011</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />		
+		<FIELD name="PAGE" type="text" value="index.htm,page1.htm,page2.htm" />
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />
+	</LOG>
+	<LOG id="3" src="192.168.140.8" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /index.htm HTTP/1.0" 200 1011</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />		
+		<FIELD name="PAGE" type="text" value="index.htm,page1.htm,page2.htm" />
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />
+	</LOG>
+	<LOG id="4" src="192.168.140.6" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET {{PAGE}} HTTP/1.0" 200 {{SIZE}}</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />		
+		<FIELD name="PAGE" type="text" value="dash.htm,info.htm,register.htm,contactus.htm,contactus.php" />
+		<FIELD name="SIZE" type="int" value="1000-3000" />
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />
+	</LOG>
+	<LOG id="5" src="192.168.140.7" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET {{PAGE}} HTTP/1.0" 200 {{SIZE}}</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />		
+		<FIELD name="PAGE" type="text" value="dash.htm,info.htm,register.htm,contactus.htm,contactus.php" />
+		<FIELD name="SIZE" type="int" value="1000-3000" />
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />
+	</LOG>
+	<LOG id="6" src="192.168.140.8" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET {{PAGE}} HTTP/1.0" 200 {{SIZE}}</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />		
+		<FIELD name="PAGE" type="text" value="dash.htm,info.htm,register.htm,contactus.htm,contactus.php" />
+		<FIELD name="SIZE" type="int" value="1000-3000" />
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />
+	</LOG>
+	<LOG id="7" src="192.168.140.6" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /logo.png HTTP/1.0" 200 7411</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />	
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />	
+	</LOG>
+	<LOG id="8" src="192.168.140.7" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /logo.png HTTP/1.0" 200 7411</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />	
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />	
+	</LOG>
+	<LOG id="9" src="192.168.140.8" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /logo.png HTTP/1.0" 200 7411</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />		
+	</LOG>	
+	<LOG id="10" src="192.168.140.6" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /bg.png HTTP/1.0" 200 7411</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />	
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />	
+	</LOG>
+	<LOG id="11" src="192.168.140.7" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /bg.png HTTP/1.0" 200 7411</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />	
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />	
+	</LOG>
+	<LOG id="12" src="192.168.140.8" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /bg.png HTTP/1.0" 200 7411</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />	
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />	
+	</LOG>	
+	<LOG id="13" src="192.168.140.6" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /hero.png HTTP/1.0" 200 7411</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />	
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />	
+	</LOG>
+	<LOG id="14" src="192.168.140.7" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /hero.png HTTP/1.0" 200 7411</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />	
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />	
+	</LOG>
+	<LOG id="15" src="192.168.140.8" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /hero.png HTTP/1.0" 200 7411</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />	
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />	
+	</LOG>	
+	<LOG id="16" src="192.168.140.6" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /result-{{UQID}}.zip HTTP/1.0" 200 {{SIZE}}</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />
+		<FIELD name="SIZE" type="int" value="9000-40000" />
+		<FIELD name="UQID" type="int" value="10000-30000" />
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />		
+	</LOG>
+	<LOG id="17" src="192.168.140.7" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /result-{{UQID}}.zip HTTP/1.0" 200 {{SIZE}}</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />	
+		<FIELD name="SIZE" type="int" value="9000-40000" />
+		<FIELD name="UQID" type="int" value="10000-30000" />	
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />
+	</LOG>
+	<LOG id="18" src="192.168.140.8" facility="local7" severity="info">
+		<MESSAGE>apache_access: {{SRCIP}} user-identifier user [{{DAY}}/{{MON}}/{{YEAR}}:{{HR}}:{{MN}}:{{SC}} -0000] "GET /result-{{UQID}}.zip HTTP/1.0" 200 {{SIZE}}</MESSAGE>
+		<FIELD name="SRCIP" type="ip" value="100-220.0-254.0-254.0-254" />
+		<FIELD name="HR" type="time" value="timehr24" />
+		<FIELD name="SC" type="time" value="timesec" />
+		<FIELD name="MN" type="time" value="timemin" />	
+		<FIELD name="SIZE" type="int" value="9000-40000" />
+		<FIELD name="UQID" type="int" value="10000-30000" />	
+		<FIELD name="MON" type="time" value="dateshortmon" />
+		<FIELD name="DAY" type="time" value="dateday" />
+		<FIELD name="YEAR" type="time" value="datelongyear" />
+	</LOG>	
+
+</LOG_GENERATOR>
